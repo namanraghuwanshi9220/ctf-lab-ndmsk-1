@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Dashboard | CorpNet</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo"><a href="/">🏢 CorpNet Finance</a></div>
+        <div class="nav-links">
+            <span class="user-badge" id="displayRole">user</span>
+            <span id="displayUser" class="username"></span>
+            <button onclick="logout()" class="btn btn-outline">Sign Out</button>
+        </div>
+    </nav>
+
+    <div class="container dashboard-grid">
+        <!-- Profile Section -->
+        <div class="card">
+            <h3>Update Profile</h3>
+            <p>Keep your employee bio up to date.</p>
+            <div class="input-group">
+                <label>Employee Bio:</label>
+                <textarea id="bioInput" rows="4"></textarea>
+            </div>
+            <button onclick="updateProfile()" class="btn btn-primary">Save Changes</button>
+            <div id="profileMsg" class="msg"></div>
+        </div>
+
+        <!-- Admin Section -->
+        <div class="card admin-card">
+            <h3>🔒 Master Invoice Access</h3>
+            <p>Strictly restricted to the master billing bot with admin privileges.</p>
+            <button onclick="getFlag()" class="btn btn-danger">Request Master Invoice</button>
+            <div id="flagResult" class="code-box" style="display:none;"></div>
+        </div>
+    </div>
+    <script src="/app.js"></script>
+</body>
+</html>

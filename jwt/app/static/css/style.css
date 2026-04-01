@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(45deg, #0f0c29, #302b63, #24243e);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+.glass-container {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+    text-align: center;
+    width: 350px;
+}
+
+.glass-container.wide { width: 500px; }
+
+h2 { margin-bottom: 20px; font-weight: 500; }
+
+input {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255,255,255,0.1);
+    color: white;
+    outline: none;
+}
+
+button, .btn-logout {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: #00d2ff;
+    background: linear-gradient(to right, #3a7bd5, #00d2ff);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+button:hover, .btn-logout:hover { opacity: 0.9; }
+
+.error { color: #ff4d4d; font-size: 14px; margin-bottom: 15px; }
+.badge { background: #ffaa00; color: #000; padding: 5px 10px; border-radius: 20px; font-size: 12px; font-weight: bold; display: inline-block;}
+
+table { width: 100%; border-collapse: collapse; margin-top: 20px; margin-bottom: 20px; }
+th, td { padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.2); text-align: left; }
+
+.admin-panel { background: rgba(255, 0, 0, 0.1); padding: 20px; border-radius: 10px; border: 1px solid red; margin: 20px 0; }
+.flag { font-family: monospace; font-size: 18px; color: #00ff00; font-weight: bold; }
+
+.error-title { font-size: 80px; margin: 0; background: -webkit-linear-gradient(#ff00cc, #333399); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.hint { font-size: 12px; color: #888; margin-bottom: 20px; }

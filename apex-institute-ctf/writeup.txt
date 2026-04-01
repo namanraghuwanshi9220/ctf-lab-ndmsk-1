@@ -1,0 +1,38 @@
+Step 1: Information Gathering
+
+Go to the "Notice Board". You will see an announcement by Amit Sharma (System Admin) with the author_id: 1.
+
+Step 2: The Decoy
+
+Register a new account and log in. You will be redirected to /dashboard.html?id=<UUID>.
+If you try to change the URL to ?id=1 to view the admin's profile, the server blocks you and gives a taunt:
+"Did you really think changing the ID in the URL would give you another user's profile? The main door is locked securely. Try harder."
+
+Step 3: Finding the Secondary API Vulnerability
+On the dashboard, click "Generate ID Card". Intercept the request in Burp Suite or look at the Network tab.
+The request goes to: /api/generate-id-card?user=<YOUR_UUID>
+
+Step 4: IDOR
+
+Send the intercepted request to Burp Repeater. Change the UUID to 1:
+
+GET /api/generate-id-card?user=1 HTTP/1.1
+Response: You successfully get the Admin's ID card data! However, there is no flag.
+
+Step 5: The Header Magic
+
+Look closely at the HTTP Response Headers from Step 4. You will see:
+X-Diagnostic-Status: Debug flag disabled. Require header 'X-Show-Secrets: true'
+
+Step 6: Capture the Flag
+
+Add the requested header to your HTTP Request:
+
+GET /api/generate-id-card?user=1 HTTP/1.1
+Authorization: Bearer <Your_JWT>
+X-Show-Secrets: true
+
+Send the request. The response body will now contain the Admin's hidden data:
+"system_flag": "CTF{1D0R_1n_53c0nd4ry_f34tur3s_w1th_H34d3r_M4g1c}"
+
+Run the lab via: docker-compose up --build -d on port 4000. Have fun!

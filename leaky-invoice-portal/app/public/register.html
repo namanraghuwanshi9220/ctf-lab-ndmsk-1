@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register | CorpNet</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body class="auth-bg">
+    <div class="auth-card">
+        <div class="logo" style="text-align: center; margin-bottom: 20px;">🏢 CorpNet</div>
+        <h2>New Employee Registration</h2>
+        <form id="regForm">
+            <div class="input-group">
+                <label>Choose Username</label>
+                <input type="text" id="regUser" placeholder="e.g., john_doe" required>
+            </div>
+            <div class="input-group">
+                <label>Create Password</label>
+                <input type="password" id="regPass" placeholder="Strong password" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Create Account</button>
+            
+            <!-- Yahan success ya error message show hoga -->
+            <div id="authMsg" class="msg" style="text-align: center;"></div>
+        </form>
+        
+        <p class="auth-footer">Already have an account? <a href="/login.html">Sign In here</a></p>
+    </div>
+    <script src="/app.js"></script>
+</body>
+</html>

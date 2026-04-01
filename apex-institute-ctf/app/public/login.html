@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Login | Apex</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <nav class="navbar"><div class="logo"><a href="/">🎓 Apex Institute</a></div></nav>
+    <div class="container" style="max-width: 400px;">
+        <div class="card">
+            <h2>Student Portal Login</h2>
+            <form id="loginForm">
+                <div class="input-group">
+                    <label>Username</label>
+                    <input type="text" id="loginUser" required>
+                </div>
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" id="loginPass" required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Secure Login</button>
+                <div id="authMsg" class="msg"></div>
+            </form>
+        </div>
+    </div>
+    <script src="/app.js"></script>
+</body>
+</html>

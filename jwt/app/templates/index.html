@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>College Portal v2.0</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="glass-container">
+        <h2>🎓 Student Result Portal</h2>
+        {% if error %}<p class="error">{{ error }}</p>{% endif %}
+        <form action="/login" method="POST">
+            <input type="text" name="username" placeholder="Enter Student Name" required>
+            <button type="submit">View Results</button>
+        </form>
+    </div>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

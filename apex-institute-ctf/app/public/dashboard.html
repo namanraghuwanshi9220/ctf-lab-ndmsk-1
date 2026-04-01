@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Portal | Apex</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo"><a href="/">🎓 Apex Institute</a></div>
+        <button onclick="logout()" class="btn btn-outline">Logout</button>
+    </nav>
+    <div class="container">
+        <div class="card">
+            <h2>Academic Profile</h2>
+            <div id="profileData" class="code-box">Loading...</div>
+            <div id="tauntMsg" class="taunt"></div>
+            
+            <hr style="margin: 20px 0; border: 1px solid #e2e8f0;">
+            
+            <h3>Virtual ID Card</h3>
+            <p style="margin-bottom: 15px; color: #64748b;">Generate your digital ID card for campus entry.</p>
+            <button onclick="generateIDCard()" class="btn btn-primary">Generate ID Card (JSON)</button>
+            <div id="idCardResult" class="code-box" style="display: none;"></div>
+        </div>
+    </div>
+    <script src="/app.js"></script>
+</body>
+</html>

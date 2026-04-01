@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="glass-container wide">
+        <h2>Welcome, {{ username }}!</h2>
+        <p class="badge">Role: {{ role }}</p>
+        
+        {% if role == 'admin' %}
+            <div class="results admin-panel">
+                <h3>🚨 Top Secret Admin Access Granted</h3>
+                <p>System Flag: <span class="flag">{{ flag }}</span></p>
+            </div>
+        {% else %}
+            <div class="results">
+                <h3>Semester 4 Results</h3>
+                <table>
+                    <tr><th>Subject</th><th>Grade</th></tr>
+                    <tr><td>Data Structures</td><td>A</td></tr>
+                    <tr><td>Operating Systems</td><td>B+</td></tr>
+                    <tr><td>Cryptography</td><td>C- (Needs Improvement)</td></tr>
+                </table>
+            </div>
+        {% endif %}
+        
+        <a href="/logout" class="btn-logout">Logout</a>
+    </div>
+</body>
+</html>

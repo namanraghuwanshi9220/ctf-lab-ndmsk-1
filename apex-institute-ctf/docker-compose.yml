@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  app:
+    build: ./app
+    ports:
+      - "4000:4000"
+    environment:
+      - JWT_SECRET=ApexSecureKey2024
+      - FLAG=CTF{1D0R_1n_53c0nd4ry_f34tur3s_w1th_H34d3r_M4g1c}
+    read_only: true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    restart: always

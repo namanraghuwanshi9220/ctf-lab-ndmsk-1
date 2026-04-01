@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  app:
+    build: ./app
+    ports:
+      - "3000:3000"
+    environment:
+      - MONGO_URI=mongodb://db:27017/ctf
+      - JWT_SECRET=Th1s1sA$ecur3K3y!
+      - FLAG=CTF{m4ss_4ss1gnm3nt_m33ts_t1m1ng_0r4cl3}
+      - NODE_ENV=production
+    depends_on:
+      - db
+    networks:
+      - ctf_net
+    # --- DOCKER HARDENING ---
+    read_only: true # Prevents attackers from writing malware/scripts to filesystem
+    security_opt:
+      - no-new-privileges:true # Prevents privilege escalation via SUID binaries
+    cap_drop:
+      - ALL # Drops all Linux capabilities (chown, setuid, net_raw, etc.)
+    tmpfs:
+      - /tmp:rw,noexec,nosuid # Allows temp memory but prevents execution
+    restart: on-failure
+    mem_limit: 256m # Prevent DoS via memory exhaustion
+    cpus: "0.5" # Prevent DoS via CPU exhaustion
+
+  db:
+    image: mongo:6.0
+    environment:
+      - MONGO_INITDB_DATABASE=ctf
+    volumes:
+      - ./init-mongo/setup.js:/docker-entrypoint-initdb.d/setup.js:ro # Read-only mount
+    networks:
+      - ctf_net
+    # --- DOCKER HARDENING ---
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    cap_add:
+      - SETUID # Mongo needs minimal caps to run
+      - SETGID
+    restart: on-failure
+    mem_limit: 512m
+
+networks:
+  ctf_net:
+    driver: bridge # Isolated network, db is not exposed to the host machine
