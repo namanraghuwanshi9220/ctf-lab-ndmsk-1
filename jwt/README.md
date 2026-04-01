@@ -19,3 +19,5 @@ This challenge is fully containerized and ready for production deployment.
 docker-compose up --build -d
 
 The challenge will be accessible at http://localhost:5000.
+
+ flag CTF{JwT_Alg0_c0nfus10n_M4st3r}

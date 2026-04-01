@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  web:
+    build: ./web
+    ports:
+      - "8000:80"
+    depends_on:
+      - db
+  db:
+    image: mariadb:10.5
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: ctf_db
+      MYSQL_USER: ctf_user
+      MYSQL_PASSWORD: ctf_password
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
